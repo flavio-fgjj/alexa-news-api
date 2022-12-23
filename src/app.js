@@ -8,7 +8,7 @@ const indexRoute = require('./routes/index-route')
 const g1Route = require('./routes/g1-route')
 const cnnRoute = require('./routes/cnn-route')
 const uolRoute = require('./routes/uol-routes')
-const mf = require('./routes/mf-route')
+const mf = require('./routes/mercadofinanceiro-route')
 
 app.use(express.json())
 app.use(express.urlencoded({
@@ -30,7 +30,7 @@ app.use('/', indexRoute)
 app.use('/api/g1', g1Route)
 app.use('/api/cnn', cnnRoute)
 app.use('/api/uol', uolRoute)
-app.use('/api/mf', mf);
+app.use('/api/mercadofinanceiro', mf);
 
 
 
