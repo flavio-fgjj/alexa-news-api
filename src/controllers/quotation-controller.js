@@ -1,6 +1,6 @@
 'use strict'
 
-const repository = require('../repositories/mercadofinanceiro-repository')
+const repository = require('../repositories/quotation-repository')
 
 exports.get = async(req, res, next) => {
   try {

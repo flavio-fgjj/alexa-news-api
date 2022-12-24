@@ -8,7 +8,7 @@ const indexRoute = require('./routes/index-route')
 const g1Route = require('./routes/g1-route')
 const cnnRoute = require('./routes/cnn-route')
 const uolRoute = require('./routes/uol-routes')
-const mercadofinanceiro = require('./routes/mercadofinanceiro-route')
+const quotation = require('./routes/quotation-route')
 const weather = require('./routes/weather-route')
 
 
@@ -32,9 +32,7 @@ app.use('/', indexRoute)
 app.use('/api/g1', g1Route)
 app.use('/api/cnn', cnnRoute)
 app.use('/api/uol', uolRoute)
-app.use('/api/mercadofinanceiro', mercadofinanceiro)
+app.use('/api/quotations', quotation)
 app.use('/api/weather', weather)
-
-
 
 module.exports = app
