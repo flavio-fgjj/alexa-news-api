@@ -42,7 +42,7 @@ async function fillQuotation() {
     for (const stock in stocks) {
         if (Object.hasOwnProperty.call(stocks, stock)) {
             const { name, location, points, variation } = stocks[stock]
-            arrayQuotation.push(`bolsa ${name} ${location} pontos ${points} variação ${variation}`)
+            arrayQuotation.push(`${name} ${location} com ${points} pontos e variação de ${variation}`)
         }
     }
 }
