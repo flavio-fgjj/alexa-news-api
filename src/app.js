@@ -27,10 +27,11 @@ app.use((req, res, next) => {
 })
 
 app.use('/', indexRoute)
-app.use('/api/g1', g1Route)
-app.use('/api/cnn', cnnRoute)
-app.use('/api/uol', uolRoute)
-app.use('/api/mf', mf);
+app.use('/api/news/g1', g1Route)
+app.use('/api/news/cnn', cnnRoute)
+app.use('/api/news/uol', uolRoute)
+app.use('/api/quotation/mf', mf);
+app.use('/api/weather/weather', mf);
 
 
 
