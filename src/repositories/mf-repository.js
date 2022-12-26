@@ -8,7 +8,7 @@ var array = []
 exports.get = async () => {
     await fill()
 
-    if (arrayNews.length <= 0) {
+    if (array.length <= 0) {
         // trying again
         await fill()
 
