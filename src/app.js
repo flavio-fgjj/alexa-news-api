@@ -8,8 +8,8 @@ const indexRoute = require('./routes/index-route')
 const g1Route = require('./routes/g1-route')
 const cnnRoute = require('./routes/cnn-route')
 const uolRoute = require('./routes/uol-routes')
-const quotation = require('./routes/quotation-route')
-const weather = require('./routes/weather-route')
+const quotationRoute = require('./routes/quotation-route')
+const weatherRoute = require('./routes/weather-route')
 
 
 app.use(express.json())
@@ -29,10 +29,12 @@ app.use((req, res, next) => {
 })
 
 app.use('/', indexRoute)
-app.use('/api/g1', g1Route)
-app.use('/api/cnn', cnnRoute)
-app.use('/api/uol', uolRoute)
-app.use('/api/quotations', quotation)
-app.use('/api/weather', weather)
+app.use('/api/news/g1', g1Route)
+app.use('/api/news/cnn', cnnRoute)
+app.use('/api/news/uol', uolRoute)
+app.use('/api/quotation/mf', quotationRoute);
+app.use('/api/weather', weatherRoute);
+
+
 
 module.exports = app
