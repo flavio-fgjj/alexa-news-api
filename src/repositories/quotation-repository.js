@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 const axios = require('axios')
+const Stocks = require('../models/quotation-model')
 
 const url = `https://api.hgbrasil.com/finance/quotations?key=${process.env.KEYAPI}`
 var arrayQuotation = []
@@ -41,8 +42,15 @@ async function fillQuotation() {
 
     for (const stock in stocks) {
         if (Object.hasOwnProperty.call(stocks, stock)) {
+            let n = new Stocks()
             const { name, location, points, variation } = stocks[stock]
-            arrayQuotation.push(`${name} ${location} com ${points} pontos e variação de ${variation}`)
+
+            n.setStock(`${name}`)
+            n.setLocation(`${location}`)
+            n.setPoints(`${parseInt(points)}`)
+            n.setVariation(`${variation}%`)
+            //arrayQuotation.push(`${name} ${location} com ${points} pontos e variação de ${variation}`)
+            arrayQuotation.push(n);
         }
     }
 }
