@@ -27,16 +27,16 @@ module.exports = class Stocks {
 
     equals (otherValue) {
       return otherValue.getStock() == this.getStock()
-                && otherValue.getLocation() == this.getLocation()
-                && otherValue.getPoints() == this.getPoints()
-                && otherValue.getVariation() == this.getVariation()
+            && otherValue.getLocation() == this.getLocation()
+            && otherValue.getPoints() == this.getPoints()
+            && otherValue.getVariation() == this.getVariation()
     }
   
     fill (newValues) {
-        for (let field in newFields) {
-            if (this.hasOwnProperty(field) && newFields.hasOwnProperty(field)) {
+        for (let field in newValues) {
+            if (this.hasOwnProperty(field) && newValues.hasOwnProperty(field)) {
               if (this[field] !== 'undefined') {
-                  this[field] = newFields[field];
+                  this[field] = newValues[field];
               }
             }
           }
