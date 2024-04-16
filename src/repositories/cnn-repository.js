@@ -41,16 +41,16 @@ async function fillNews() {
 
   let search = await axios.get(url)
   let $ = cheerio.load(search.data)
-  let _listNews = $('.wrapper--sidebar-left, .home__list')
+  let _listNews = $('.wrapper--sidebar-left, .home__new')
 
   let total = 0
+  let title = ''
   _listNews.first().toArray().map(function(x) {
-    return $(x).find('.home__list__item--first').children().toArray().map(function(x) {
-      if($(x).attr('class') == "home__post") {
-        let title = $(x).find('.home__title__label').first().text()
-        let description = $(x).attr('title')
+    return $(x).find('.home__list__item').children().toArray().map(function(x) {
+      if($(x).attr('class') === "home__list__tag") {
+        let description = $(x).find('.home__list__tag').first().text()
 
-        if (title && (title.toString().trim() != "BRANDED CONTENT" && title.toString().trim() != "") && total < 12) {
+        if (title !== '' && ($(x).find('.news-item-header__title').first().text() != "BRANDED CONTENT" && $(x).find('.news-item-header__title').first().text() !== "") && total < 12) {
           total ++
           let n = new News()
           n.setTitle(title.toString().trim())
@@ -62,6 +62,10 @@ async function fillNews() {
         }
         
         return $(x).text()
+      }
+
+      if ($(x).attr('class') === 'latest__news__infos') {
+        title = $(x).find('.home__title__date').first().text()
       }
     })
   })
